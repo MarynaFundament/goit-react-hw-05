@@ -1,32 +1,29 @@
-import userData from './Profile/userData.json';
-import friends from "../components/FriendList/friends.json";
-import transactions from "./TransactionHistory/transactionhistory.json";
+import { Route, Routes} from "react-router-dom"
+import Navigation from "./Navigation/Navigation";
 
-import FriendList from "./FriendList/FriendList";
-import Profile  from "./Profile/Profile";
-import TransactionHistory from "./TransactionHistory/TransactionHistory";
-
+import HomePage from "../pages/HomePage";
+import MoviesPage from "../pages/MoviesPage"
+import MovieDetailsPage from "../pages/MovieDetailsPage";
 
  export const App = () => {
   
   return (
     <div>
  
-     <Profile
-      name={userData.name}
-      tag={userData.tag}
-      location={userData.location}
-      avatar={userData.avatar}
-      stats={userData.stats}
-    />
+    <Navigation/>
 
-       <FriendList friends={friends} /> 
-       <TransactionHistory items={transactions} />
+        <Routes>
+
+            <Route path = "/" element={<HomePage/>} />
+            {/* <Route path = "/movies" element={<MoviesPage/>}  /> */}
+            <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+
+            {/* <Route path = "*" element={ <div> Oops! Not found!</div> } /> */}
+
+        </Routes>
+ 
+  
 
     </div>
   );
 };
-
-
-
-
