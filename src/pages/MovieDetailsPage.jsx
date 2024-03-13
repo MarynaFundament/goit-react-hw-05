@@ -11,9 +11,10 @@ export default function MovieDetailsPage() {
 
     useEffect(() => {
         async function getDataById(){
-            try {
             // setIsLoading = true
-               const data = await getTrendsById()
+            
+            try {
+               const data = await getTrendsById(movieId)
                setDetails(data)
 
            
