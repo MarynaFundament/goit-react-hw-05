@@ -1,0 +1,20 @@
+.list{
+    list-style: none;
+}
+
+.header{
+    margin-left: 40px;
+    margin-top: 50px;
+}
+
+.author{
+    text-decoration: underline;
+}
+
+.item{
+    width: 1150px;
+    text-align: justify;
+
+    border-bottom: 1px solid #999;
+
+}

@@ -1,0 +1,43 @@
+.header{
+    margin-left: 40px;
+    margin-top: 60px;
+}
+
+.list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    list-style: none;
+    
+}
+
+.card{
+
+    border: 1px solid #999; /* Add border */
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4); 
+
+    border-radius: 10px;
+    width: 170px;
+
+
+}
+
+.img{
+    display: block;
+
+    border-radius: 10px;
+
+    height: 230px;
+    width: 100%;
+
+}
+
+
+.paragraph{
+    margin-left: 10px;
+    margin-top: 10px;
+
+   
+}

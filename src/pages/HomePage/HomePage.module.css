@@ -1,0 +1,35 @@
+h1{
+    color: #abdbe3;
+    margin-left: 40px;
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+
+}
+
+.link{
+    text-decoration: none;
+    color:#999 ;
+    
+}
+
+.li{
+    width: 200px;
+    height: 300px;
+
+    margin-top: 20px;
+}
+
+.link:hover{
+    color: #abdbe3;
+}
+
+.img{
+    width: 220px;
+    height: 300px;
+}
+
+

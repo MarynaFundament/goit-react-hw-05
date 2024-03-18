@@ -9,8 +9,10 @@ const makeLinkClass = ({isActive}) => {
 
 export default function Navigation (){
     return (
+
         <nav className={styles.nav}> 
         <NavLink 
+      
           to = "/" 
           className={makeLinkClass}
         >
@@ -21,5 +23,6 @@ export default function Navigation (){
           className={makeLinkClass}
           > Movies </NavLink>
       </nav>
+     
     )
 }
