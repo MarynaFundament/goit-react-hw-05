@@ -23,7 +23,7 @@ const MovieReviews = lazy(() => import("./MovieReviews/MovieReviews"));
             <Route path = "/" element={<HomePage/>} />
             <Route path = "/movies" element={<MoviesPage/>}  /> 
             <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-         <Route path="cast" element = {<MovieCast/>}/>
+         <Route path="cast" element = {<MovieCast/> }/>
          <Route path="reviews"  element = {<MovieReviews/>}/>
               </Route>
             <Route path = "*" element={ <div> Oops! Not found!</div> } />
