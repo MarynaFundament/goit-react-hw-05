@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import styles from "../../pages/HomePage/HomePage.module.css"
 
 export default function MovieList ({trend}){
+  
     return(
     <div>
 

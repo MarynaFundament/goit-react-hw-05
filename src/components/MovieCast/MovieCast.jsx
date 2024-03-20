@@ -15,9 +15,7 @@ export default function MovieCast(){
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        async function getDataById(){
-         
-            
+        async function getDataById(){   
             try {
 
                setIsLoading(true)
@@ -44,17 +42,24 @@ export default function MovieCast(){
      
     }, [movieId]);
 
+
+    const defaultImg = 'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
+
+
     return(<div> 
 
             <h2 className={styles.header}>Cast: {cast.cast}</h2>
-           
-            <ul className={styles.list}>
+        
+               <ul className={styles.list}>
             {cast  && 
 
              cast.map(({id, name, character, profile_path, original_name}) => (
             
                 <li key={id}   className={styles.card} >
-                   <img src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                   <img 
+        
+                   src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
+
                     className={styles.img}
                     alt={original_name} />
 
