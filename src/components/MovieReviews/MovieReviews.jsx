@@ -28,7 +28,7 @@ export default function MovieReviews(){
                setReview(data)
 
                if (data.length === 0) {
-                toast.error('Sorry, there are no images matching your search query. Please try again', { position: 'top-right' });
+                toast.error('Sorry, there are no reviews here', { position: 'top-right' });
                 return;
                }
 

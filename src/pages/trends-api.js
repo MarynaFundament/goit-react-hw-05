@@ -1,7 +1,6 @@
 import axios  from "axios";
 
-
-const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/trending/movie'
 
 const options = {
     headers: {
@@ -10,7 +9,7 @@ const options = {
   };
 
   export const getTrends = async () => {
-      const response = await axios.get(url, options);
+      const response = await axios.get('/day?language=en-US', options);
       // console.log(response.data.results);
       return response.data.results;
     } 
