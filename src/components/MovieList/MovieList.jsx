@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import styles from "../../pages/HomePage/HomePage.module.css"
 
-export default function MovieList ({trend}){
+export default function MovieList ({trend, location}){
   
     return(
     <div>
@@ -12,6 +12,7 @@ export default function MovieList ({trend}){
          
              <Link 
                to={`/movies/${movie.id}`} 
+               
                className = {styles.link}
                key={movie.id}>
              

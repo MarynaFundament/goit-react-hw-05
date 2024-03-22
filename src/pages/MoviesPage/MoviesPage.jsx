@@ -6,18 +6,18 @@ import { getMovieByQuery } from "../trends-api";
 import toast, { Toaster } from 'react-hot-toast';
 import Error from '../../components/ErrorMessage/ErrorMessage';
 import MovieFilter from "../../components/MovieFilter/MovieFilter";
-
+import MovieList from "../../components/MovieList/MovieList";
 import styles from "../MoviesPage/MoviesPage.module.css"
 
 export default function MoviesPage(){
 
     const [movie, setMovie] = useState([]);
     const [params] = useSearchParams ();
-   
     const [error, setError] = useState(false);
 
     const ownerFilter = params.get("owner") ?? "";
     const location = useLocation();
+    console.log(location)
       
     useEffect(() => {
         async function getDataTrends(){
@@ -32,14 +32,14 @@ export default function MoviesPage(){
                }
 
             } catch (error) {
-               setError = true
+                setError(true)
             } 
           
         }
         getDataTrends()
      
     }, 
-    [ownerFilter]);
+    [ownerFilter, setMovie, setError]);
 
 
     const filteredMovies = useMemo(() => {
@@ -56,21 +56,7 @@ export default function MoviesPage(){
             <MovieFilter/>
            
             <div>
-                { movie &&  
-                <ul className={styles.list}>
-
-                {filteredMovies.map(({ title, id }) => (
-                     <Link className={styles.link}
-                
-                      to={`/movies/${id}`} 
-                      state = {location}
-                      key={id}>{title}
-                 
-                    </Link>
-                ))}
-                 </ul>
-
-                }
+                { movie &&  <MovieList trend={filteredMovies} location = {location}/>}
 
              {error && <Error />}
              <Toaster/>

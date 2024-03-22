@@ -25,7 +25,7 @@ export default function MovieCast(){
                setCast(data)
 
                if (data.length === 0) {
-                toast.error('Sorry, there are no images matching your search query. Please try again', { position: 'top-right' });
+                toast.error('Sorry, there are no cast here', { position: 'top-right' });
                 return;
                }
 
@@ -50,29 +50,21 @@ export default function MovieCast(){
 
             <h2>Cast {cast.cast}</h2>
         
-               <ul className={styles.list}>
-            {cast  && 
-
-             cast.map(({id, name, character, profile_path, original_name}) => (
-            
-                <li key={id}   className={styles.card} >
-                   <img 
-        
-                   src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
-
-                    className={styles.img}
-                    alt={original_name} />
-
-                    <div className={styles.caption}>
-                    <p className={styles.paragraph}> Name: {name}</p>
-                    <p className={styles.paragraph}> Character: {character} </p>
-
-                    </div>
-                </li> 
-               
-             ))
-            }
-
+            <ul className={styles.list}>
+                
+                {cast.map(({ id, name, character, profile_path, original_name }) => (
+                    <li key={id} className={styles.card}>
+                        <img
+                            src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
+                            className={styles.img}
+                            alt={original_name}
+                        />
+                        <div className={styles.caption}>
+                            <p className={styles.paragraph}> Name: {name}</p>
+                            <p className={styles.paragraph}> Character: {character} </p>
+                        </div>
+                    </li>
+                ))}
             </ul>
             
             {isLoading && <Loader/>}

@@ -24,7 +24,7 @@ export default function HomePage(){
                setTrend(data)
 
                if (data.length === 0) {
-                toast.error('Sorry, there are no images matching your search query. Please try again', { position: 'top-right' });
+                toast.error('Sorry, there are no movies matching your search query. Please try again', { position: 'top-right' });
                 return;
               }
 
