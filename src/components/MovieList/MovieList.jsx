@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom"
 import styles from "../../pages/HomePage/HomePage.module.css"
 
-export default function MovieList ({trend, location}){
-  
+export default function MovieList ({trend}){
+  const location = useLocation();
+  console.log(location)
+
     return(
     <div>
 
@@ -11,10 +13,12 @@ export default function MovieList ({trend, location}){
            <div  className = {styles.li}>
          
              <Link 
+          
                to={`/movies/${movie.id}`} 
-               
                className = {styles.link}
-               key={movie.id}>
+               state={location}
+               key={movie.id}
+              >
              
              
               <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

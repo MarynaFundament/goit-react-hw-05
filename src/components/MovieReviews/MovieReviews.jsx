@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
-import { getReviewsById } from "../../pages/trends-api"
+import { getReviewsById } from "../trends-api"
 
 import toast, { Toaster } from 'react-hot-toast';
 import Loader from '../../components/Loader/Loader';

@@ -3,11 +3,9 @@ import Loader from '../../components/Loader/Loader';
 import Error from '../../components/ErrorMessage/ErrorMessage';
 
 import { useState, useEffect } from "react";
-import { getTrends } from "../trends-api";
+import { getTrends } from "../../components/trends-api";
 
 import MovieList from "../../components/MovieList/MovieList"
-import styles from "../HomePage/HomePage.module.css"
-
 export default function HomePage(){
 
     const[trend, setTrend] = useState([]);

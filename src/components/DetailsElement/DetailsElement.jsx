@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import { useRef } from "react"
 import styles from "../../pages/MovieDetailsPage/MovieDetailsPage.module.css"
 
-export default function DetailsElement ({ details, location }){
+export default function DetailsElement ({ details}){
+
+    const location = useLocation()
+    const backLinkRef = useRef(location.state ?? "./movies")
+    console.log(backLinkRef)
+
     return (<div> 
         <h2 className={styles.title}>{details.title}</h2>
 
         <Link
-         to={location.state ?? "/movies"}
+         to={backLinkRef.current}
          className = {styles.back}> 
          Go back 
         </Link>

@@ -31,7 +31,7 @@ const MovieReviews = lazy(() => import("./MovieReviews/MovieReviews"));
         </Routes>
  
     </Suspense>
-        <Outlet/>
+       
     </div>
   );
 };

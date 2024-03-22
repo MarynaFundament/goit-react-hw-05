@@ -1,7 +1,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useLocation, Link} from "react-router-dom";
-import { getMovieByQuery } from "../trends-api";
+import { getMovieByQuery } from "../../components/trends-api";
 
 import toast, { Toaster } from 'react-hot-toast';
 import Error from '../../components/ErrorMessage/ErrorMessage';
@@ -16,8 +16,7 @@ export default function MoviesPage(){
     const [error, setError] = useState(false);
 
     const ownerFilter = params.get("owner") ?? "";
-    const location = useLocation();
-    console.log(location)
+  
       
     useEffect(() => {
         async function getDataTrends(){
@@ -52,15 +51,12 @@ export default function MoviesPage(){
     return (
         
         <div className={styles.search}>
-
             <MovieFilter/>
-           
-            <div>
-                { movie &&  <MovieList trend={filteredMovies} location = {location}/>}
-
-             {error && <Error />}
-             <Toaster/>
             
+            <div>
+             { movie &&  <MovieList trend={filteredMovies}/> }
+             { error && <Error /> }
+             <Toaster/>
             </div>
 
         </div>)}

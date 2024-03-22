@@ -1,6 +1,6 @@
-import {  useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
-import {getCastById} from "../../pages/trends-api"
+import {getCastById} from "../trends-api"
 
 import styles from "../MovieCast/MovieCast.module.css"
 
@@ -48,7 +48,7 @@ export default function MovieCast(){
 
     return(<div className={styles.first}> 
 
-            <h2>Cast {cast.cast}</h2>
+            <h2>Cast</h2>
         
             <ul className={styles.list}>
                 
