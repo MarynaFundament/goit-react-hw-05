@@ -1,13 +1,13 @@
 import { Suspense, lazy } from "react";
 import { Outlet, useParams, useLocation} from "react-router-dom"
 import { useState, useEffect } from "react";
-import { getTrendsById } from "../../components/trends-api";
+import { getTrendsById } from "../../api/trends-api";
 
 import DetailsElement from "../../components/DetailsElement/DetailsElement"
 import toast, { Toaster } from 'react-hot-toast';
 import Loader from '../../components/Loader/Loader';
 import Error from '../../components/ErrorMessage/ErrorMessage';
-import NavigationComponents from "../../components/NavigationComponents";
+import NavigationComponents from "../../components/NavigationComponents/NavigationComponents";
 import { useRef } from "react";
 
 export default function MovieDetailsPage() {

@@ -3,7 +3,7 @@ import Loader from '../../components/Loader/Loader';
 import Error from '../../components/ErrorMessage/ErrorMessage';
 
 import { useState, useEffect } from "react";
-import { getTrends } from "../../components/trends-api";
+import { getTrends } from "../../api/trends-api";
 
 import MovieList from "../../components/MovieList/MovieList"
 export default function HomePage(){

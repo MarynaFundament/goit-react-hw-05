@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
-import {getCastById} from "../trends-api"
+import {getCastById} from "../../api/trends-api"
 
 import styles from "../MovieCast/MovieCast.module.css"
 
@@ -51,8 +51,9 @@ export default function MovieCast(){
             <h2>Cast</h2>
         
             <ul className={styles.list}>
-                
-                {cast.map(({ id, name, character, profile_path, original_name }) => (
+        
+                {cast.length > 0  ?
+                  cast.map(({ id, name, character, profile_path, original_name }) => (
                     <li key={id} className={styles.card}>
                         <img
                             src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
@@ -63,8 +64,11 @@ export default function MovieCast(){
                             <p className={styles.paragraph}> Name: {name}</p>
                             <p className={styles.paragraph}> Character: {character} </p>
                         </div>
-                    </li>
-                ))}
+                    </li>)) :
+             <p> "Oops, no cast found"</p>
+            }
+
+         
             </ul>
             
             {isLoading && <Loader/>}

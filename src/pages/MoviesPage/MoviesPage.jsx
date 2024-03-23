@@ -1,7 +1,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useLocation, Link} from "react-router-dom";
-import { getMovieByQuery } from "../../components/trends-api";
+import { getMovieByQuery } from "../../api/trends-api";
 
 import toast, { Toaster } from 'react-hot-toast';
 import Error from '../../components/ErrorMessage/ErrorMessage';
