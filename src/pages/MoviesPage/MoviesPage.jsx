@@ -15,14 +15,15 @@ export default function MoviesPage(){
     const [params] = useSearchParams ();
     const [error, setError] = useState(false);
 
-    const ownerFilter = params.get("owner") ?? "";
+    const filterData = params.get("owner") ?? "";
   
       
     useEffect(() => {
         async function getDataTrends(){
+
             try {
                setError(false)
-               const data = await getMovieByQuery(ownerFilter)
+               const data = await getMovieByQuery(filterData)
                setMovie(data.results)
 
                if (data.length === 0) {
@@ -38,14 +39,14 @@ export default function MoviesPage(){
         getDataTrends()
      
     }, 
-    [ownerFilter, setMovie, setError]);
+    [filterData, setMovie, setError]);
 
 
     const filteredMovies = useMemo(() => {
         return movie.filter((movie) =>
-        movie.title.toLowerCase().includes(ownerFilter.toLowerCase()));
+        movie.title.toLowerCase().includes(filterData.toLowerCase()));
     
-    }, [ownerFilter, movie])
+    }, [filterData, movie])
 
 
     return (
@@ -54,7 +55,7 @@ export default function MoviesPage(){
             <MovieFilter/>
             
             <div>
-             { movie &&  <MovieList trend={filteredMovies}/> }
+             { movie &&  <MovieList movies={filteredMovies}/> }
              { error && <Error /> }
              <Toaster/>
             </div>

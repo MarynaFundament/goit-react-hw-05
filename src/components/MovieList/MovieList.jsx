@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom"
 import styles from "../../pages/HomePage/HomePage.module.css"
 
-export default function MovieList ({trend}){
+export default function MovieList ({movies}){
   const location = useLocation();
   console.log(location)
 
@@ -9,15 +9,15 @@ export default function MovieList ({trend}){
     <div>
 
         <ul className = {styles.list}>
-           {trend.map((movie) => (
-           <div  className = {styles.li}>
+           {movies.map((movie) => (
+           <div  className = {styles.li} key={movie.id}>
          
              <Link 
           
                to={`/movies/${movie.id}`} 
                className = {styles.link}
                state={location}
-               key={movie.id}
+            
               >
              
              

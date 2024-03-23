@@ -6,20 +6,21 @@ import { useState, useEffect } from "react";
 import { getTrends } from "../../api/trends-api";
 
 import MovieList from "../../components/MovieList/MovieList"
+
 export default function HomePage(){
 
-    const[trend, setTrend] = useState([]);
+    const[trendingMovies, setTrendingMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function getDataTrends(){
             try {
                setIsLoading(true)
-               setError(false)
+               setError(null);
 
                const data = await getTrends()
-               setTrend(data)
+               setTrendingMovies(data)
 
                if (data.length === 0) {
                 toast.error('Sorry, there are no movies matching your search query. Please try again', { position: 'top-right' });
@@ -27,7 +28,7 @@ export default function HomePage(){
               }
 
             } catch (error) {
-                setError(true)
+                setError(error)
             } 
             finally {
                 setIsLoading(false)
@@ -45,8 +46,7 @@ export default function HomePage(){
  
        <h1 > Trending </h1>  
 
-        {trend && <MovieList trend = {trend}/>}
-
+        {trendingMovies.length > 0 && <MovieList movies = {trendingMovies}/>}
         {isLoading && <Loader/>}
         {error && <Error />}
         <Toaster/>
